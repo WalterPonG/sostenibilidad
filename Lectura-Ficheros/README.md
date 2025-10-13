@@ -1,18 +1,70 @@
-# Viviendas por Intensidad de Uso
+# 🌱 Lectura de Ficheros CSV en Java — Proyecto de Sostenibilidad
 
-Proyecto en **Java** que analiza un fichero CSV de consumo eléctrico en municipios de Madrid.
+> Proyecto desarrollado en **Java** dentro de **Visual Studio Code**, cuyo objetivo es **leer, interpretar y estructurar datos reales sobre territorios y viviendas** a partir de un fichero CSV.
 
-## Estructura
+---
 
-- **Territorio**  
-  Representa cada municipio con su nombre, código y valor de mediana.  
-  Permite compararlos entre sí para ordenarlos de mayor a menor.
+## 🧠 Problema a Resolver
+El fichero CSV contiene información territorial (nombre, código y mediana de consumo anual de viviendas).  
+La meta es:
+- Leer el fichero CSV correctamente.  
+- Representar cada línea como un objeto `Territorio`.  
+- Almacenar todos los territorios en una estructura central (`Viviendas`) que permita manipular y mostrar los datos.  
+- Ordenar automáticamente los territorios por su **valor de mediana** y obtener los **tres con mejores valores**.
 
-- **Viviendas**  
-  Lee el CSV, convierte los valores nulos en `0`, crea la lista de territorios, los ordena y muestra los 3 con mayor mediana.
+---
 
-## Ejemplo de salida
-Territorio: Tielmes | Código: 1467 | Valor: 3741
-Territorio: Nuevo Baztán | Código: 1006 | Valor: 3663
-Territorio: Torres de la Alameda | Código: 1548 | Valor: 3607
+## 🛠️ Tecnologías y Herramientas
+- ☕ **Java**  
+- 🧰 **Visual Studio Code** como entorno de desarrollo  
+- 🗂️ **Ficheros CSV** como fuente de datos
 
+---
+
+## 🧾 Estructura del Código
+
+- `Territorio.java`  
+  - Define la **clase Territorio**, con atributos `nombre`, `codigo` y `mediana`.  
+  - Implementa la interfaz `Comparable<Territorio>` para poder **ordenar automáticamente** los objetos por mediana de forma descendente.  
+  - Incluye métodos `get/set` y `toString()` para mostrar la información de forma clara.
+
+- `Viviendas.java`  
+  - Lee el fichero CSV con `BufferedReader`.  
+  - Ignora la cabecera y procesa línea por línea usando `split(";")`.  
+  - Controla valores vacíos o “-” asignándoles 0.  
+  - Crea objetos `Territorio` y los almacena en un `ArrayList`.  
+  - Ordena la lista con `Collections.sort(lista)` gracias a la lógica de `compareTo()`.  
+  - Muestra:
+    - Los **3 territorios con mejor mediana**.  
+    - La **lista completa ordenada** de mayor a menor.
+
+- `viviendas-por-intensidad-de-uso-a-partir-del-consumo-electrico.-mediana-consumo-anual.csv`  
+  - Contiene los datos territoriales reales (Comunidad de Madrid, municipios y valores de consumo).
+
+---
+
+## 🔍 Lo que Destaco
+
+Este proyecto refleja mi forma de trabajar:
+
+-  **Estructuro los datos** en objetos Java claros y reutilizables.  
+-  Cuido detalles como valores vacíos y tipos numéricos.  
+-  Uso las herramientas básicas de Java para tareas de procesamiento de datos reales.  
+-  Integro ordenación personalizada mediante `Comparable` y `Collections.sort()` para obtener resultados útiles.
+
+---
+
+## 🏁 Cómo Ejecutarlo
+
+1. Clonar el repositorio:  
+   ```bash
+   git clone https://github.com/WalterPonG/sostenibilidad.git
+2. Abrir la carpeta Lectura-Ficheros en Visual Studio Code.
+
+3. Compilar y ejecutar:
+
+
+```bash 
+  javac *.java
+  java Viviendas
+```
