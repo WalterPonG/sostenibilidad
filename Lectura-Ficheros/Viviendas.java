@@ -27,7 +27,7 @@ public class Viviendas {
                 lista.add(new Territorio(nombre, codigo, valor));
 
 
-                linea = br.readLine();
+                
             }
 
         }catch(Exception e){

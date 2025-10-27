@@ -54,6 +54,10 @@ Este proyecto refleja mi forma de trabajar:
 
 ---
 
+## Muestra top 3
+![📊 Resultado del programa](./testViviendas.png)
+
+
 ## 🏁 Cómo Ejecutarlo
 
 1. Clonar el repositorio:  
